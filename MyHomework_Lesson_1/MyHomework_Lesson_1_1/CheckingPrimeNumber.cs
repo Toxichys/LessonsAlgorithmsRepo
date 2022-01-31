@@ -4,8 +4,8 @@ namespace MyHomework_Lesson_1_1
 {
     class CheckingPrimeNumber
     {
-     public bool CheckingPrimeNumberMethod(long number)
-    {
+        public bool CheckingPrimeNumberMethod(long number)
+        {
             long d = 0;
             long i = 2;
             while (i < number)

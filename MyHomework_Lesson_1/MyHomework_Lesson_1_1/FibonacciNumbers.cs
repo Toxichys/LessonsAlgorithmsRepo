@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyHomework_Lesson_1_2
+namespace MyHomework_Lesson_1_1
 {
     class FibonacciNumbers
     {
