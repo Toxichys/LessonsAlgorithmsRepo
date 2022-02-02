@@ -76,30 +76,52 @@ namespace MyHomework_Lesson_1_1
             }
 
         }
-
-        static void Main(string[] args)
+        static void WriteMainMenu()
+        {
+            Console.WriteLine("Основное меню");
+            Console.WriteLine("Для выхода введите 0");
+            Console.WriteLine("Для вывода 1 задания 1 урока введите 1");
+            Console.WriteLine("Для вывода 2 задания 1 урока введите 2");
+            Console.WriteLine("Для вывода 1 задания 2 урока введите 3");
+        }
+        static void MakeSelection(int a)
+        {
+            switch (a)
+            {
+                case 1:
+                    TestLesson1_1();
+                    break;
+                case 2:
+                    TestLesson1_2();
+                    break;
+                case 3:
+                    TestLesson2_1();
+                    break;
+            }
+        }
+        static void TestLesson1_1()
         {
             TestTaskOne testTaskOne1 = new TestTaskOne()
             {
                 number = 6,
                 Expected = false,
             };
-
             TestTaskOne testTaskOne2 = new TestTaskOne()
             {
                 number = 7,
                 Expected = true,
             };
-
             TestCheckingPrimeNumber(testTaskOne1);
             TestCheckingPrimeNumber(testTaskOne2);
+        }
+        static void TestLesson1_2()
+        {
             TestTaskTwo testTaskTwo1 = new TestTaskTwo()
             {
                 n = 6,
                 Expected = 8,
                 ExpectedException = null
             };
-
             TestTaskTwo testTaskTwo2 = new TestTaskTwo()
             {
                 n = -6,
@@ -116,11 +138,41 @@ namespace MyHomework_Lesson_1_1
             TestFibonacciNumbers(testTaskTwo1, 0);
             TestFibonacciNumbers(testTaskTwo2, 0);
             TestFibonacciNumbers(testTaskTwo3, 0);
-
             Console.WriteLine("Тест функции Фибоначчи реализованное рекурсией");
             TestFibonacciNumbers(testTaskTwo1, 1);
             TestFibonacciNumbers(testTaskTwo2, 1);
             TestFibonacciNumbers(testTaskTwo3, 1);
+        }
+        static void TestLesson2_1()
+        {
+            MyLinkedList myLinkedList = new MyLinkedList();
+            myLinkedList.AddNode(10);
+            myLinkedList.AddNode(20);
+            myLinkedList.AddNode(30);
+            myLinkedList.AddNode(40);
+            myLinkedList.AddNode(50);
+            Console.WriteLine("Список после добавления элементов в конец");
+            myLinkedList.PrintList();
+            Node afterNode = myLinkedList.FindNode(40);
+            myLinkedList.AddNodeAfter(afterNode, 45);
+            Console.WriteLine("Список после добавления элемента после определенного элемента");
+            myLinkedList.PrintList();
+            myLinkedList.RemoveNode(afterNode);
+            Console.WriteLine("Список после удаления элемента");
+            myLinkedList.PrintList();
+            myLinkedList.RemoveNode(2);
+            Console.WriteLine("Список после удаления элемента по номеру");
+            myLinkedList.PrintList();
+        }
+        static void Main(string[] args)
+        {
+            int a;
+            do
+            {
+                WriteMainMenu();
+                a = Int32.Parse(Console.ReadLine());
+                MakeSelection(a);
+            } while (a != 0);
         }
     }
 }
