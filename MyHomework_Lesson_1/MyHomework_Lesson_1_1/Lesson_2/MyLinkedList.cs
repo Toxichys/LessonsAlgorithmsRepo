@@ -43,7 +43,7 @@ namespace MyHomework_Lesson_1_1
                     return findNode;
                 findNode = findNode.NextNode;
             }
-            return findNode;
+            return FirstNode;
         }
 
         public int GetCount()
