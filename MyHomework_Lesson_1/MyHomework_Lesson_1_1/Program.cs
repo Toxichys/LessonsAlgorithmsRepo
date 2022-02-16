@@ -3,6 +3,8 @@ using MyHomework_Lesson_1_1.Lesson_1;
 using MyHomework_Lesson_1_1.Lesson_2;
 using MyHomework_Lesson_1_1.Lesson_3;
 using MyHomework_Lesson_1_1.Lesson_4;
+using MyHomework_Lesson_1_1.Lesson_5;
+
 namespace MyHomework_Lesson_1_1
 {
     class Program
@@ -26,12 +28,14 @@ namespace MyHomework_Lesson_1_1
         }
         static IHomeworkAssignments[] GetArrayHomeworkAssignments()
         {
-            IHomeworkAssignments[] iHomeworkAssignments = new IHomeworkAssignments[5];
+            IHomeworkAssignments[] iHomeworkAssignments = new IHomeworkAssignments[7];
             iHomeworkAssignments[0] = new HomeworkAssignment1();
             iHomeworkAssignments[1] = new HomeworkAssignment2();
             iHomeworkAssignments[2] = new HomeworkAssignment3();
             iHomeworkAssignments[3] = new HomeworkAssignment4();
             iHomeworkAssignments[4] = new HomeworkAssignment5();
+            iHomeworkAssignments[5] = new HomeworkAssignment6();
+            iHomeworkAssignments[6] = new HomeworkAssignment7();
             return iHomeworkAssignments;
         }
         static void Main(string[] args)

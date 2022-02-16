@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MyHomework_Lesson_1_1.Lesson_4
 {
@@ -147,6 +148,79 @@ namespace MyHomework_Lesson_1_1.Lesson_4
             Console.Write(start);
             while (Console.CursorLeft < widthPos2) Console.Write("─");
             Console.Write(end);
+        }
+        public static void TestTree(ITree tree)
+        {
+            tree.AddItem(50);
+            tree.AddItem(30);
+            tree.AddItem(70);
+            tree.AddItem(25);
+            tree.AddItem(45);
+            tree.AddItem(55);
+            tree.AddItem(75);
+            tree.AddItem(20);
+            tree.AddItem(27);
+            tree.AddItem(40);
+            tree.AddItem(51);
+            tree.AddItem(60);
+            tree.AddItem(68);
+            tree.AddItem(80);
+            tree.AddItem(10);
+            tree.AddItem(18);
+            tree.AddItem(74);
+            tree.AddItem(90);
+            tree.AddItem(1);
+            tree.AddItem(15);
+            tree.AddItem(73);
+            tree.AddItem(85);
+        }
+        public TreeNode GetNodeByValueMethodBFS(int value)
+        {
+            Queue<TreeNode> bufer = new Queue<TreeNode>();
+            bufer.Enqueue(rootNode);
+            Console.Write("Выводим значения джерева при обходе: \t");
+            while (bufer.Count != 0)
+            {
+                TreeNode element = bufer.Dequeue();
+                Console.Write($"<{element.Value}>, ");
+                if (element.LeftChild != null)
+                {
+                    if (element.LeftChild.Value == value)
+                        return element.LeftChild;
+                    bufer.Enqueue(element.LeftChild);
+                }
+                if (element.RightChild != null)
+                {
+                    if (element.RightChild.Value == value)
+                        return element.RightChild;
+                    bufer.Enqueue(element.RightChild);
+                }
+            }
+            return null;
+        }
+        public TreeNode GetNodeByValueMethodDFS(int value)
+        {
+            Stack<TreeNode> bufer = new Stack<TreeNode>();
+            bufer.Push(rootNode);
+            Console.Write("Выводим значения джерева при обходе: \t");
+            while (bufer.Count != 0)
+            {
+                TreeNode element = bufer.Pop();
+                Console.Write($"<{element.Value}>, ");
+                if (element.RightChild != null)
+                {
+                    if (element.RightChild.Value == value)
+                        return element.RightChild;
+                    bufer.Push(element.RightChild);
+                }
+                if (element.LeftChild != null)
+                {
+                    if (element.LeftChild.Value == value)
+                        return element.LeftChild;
+                    bufer.Push(element.LeftChild);
+                }
+            }
+            return null;
         }
     }
 }
