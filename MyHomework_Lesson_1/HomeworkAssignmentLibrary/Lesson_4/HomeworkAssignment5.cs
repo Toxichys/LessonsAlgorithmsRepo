@@ -1,6 +1,7 @@
 ﻿using System;
+using InterfaceHomeworkAssignmentLibrary;
 
-namespace MyHomework_Lesson_1_1.Lesson_4
+namespace HomeworkAssignmentLibrary.Lesson_4
 {
     public class HomeworkAssignment5 : IHomeworkAssignments
     {
@@ -15,7 +16,7 @@ namespace MyHomework_Lesson_1_1.Lesson_4
             */
             Tree tree = new Tree();
             Console.WriteLine("Дерево:");
-            Tree.TestTree(tree);
+            Tree.FillTree(tree);
             tree.PrintTree();
             tree.RemoveItem(27);
             Console.WriteLine("Дерево после удаления элмента:");

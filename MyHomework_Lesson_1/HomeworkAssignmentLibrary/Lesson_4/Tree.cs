@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyHomework_Lesson_1_1.Lesson_4
+namespace HomeworkAssignmentLibrary.Lesson_4
 {
     public class Tree : ITree
     {
@@ -149,7 +149,7 @@ namespace MyHomework_Lesson_1_1.Lesson_4
             while (Console.CursorLeft < widthPos2) Console.Write("─");
             Console.Write(end);
         }
-        public static void TestTree(ITree tree)
+        public static void FillTree(ITree tree)
         {
             tree.AddItem(50);
             tree.AddItem(30);

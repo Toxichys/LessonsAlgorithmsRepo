@@ -1,4 +1,4 @@
-﻿namespace MyHomework_Lesson_1_1
+﻿namespace HomeworkAssignmentLibrary
 {
     public interface ILinkedList
     {

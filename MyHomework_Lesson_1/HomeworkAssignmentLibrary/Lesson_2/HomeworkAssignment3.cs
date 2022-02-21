@@ -1,6 +1,7 @@
 ﻿using System;
+using InterfaceHomeworkAssignmentLibrary;
 
-namespace MyHomework_Lesson_1_1.Lesson_2
+namespace HomeworkAssignmentLibrary.Lesson_2
 {
     public class HomeworkAssignment3 : IHomeworkAssignments
     {

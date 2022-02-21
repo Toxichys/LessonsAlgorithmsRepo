@@ -1,46 +1,34 @@
 ﻿using System;
-using MyHomework_Lesson_1_1.Lesson_1;
-using MyHomework_Lesson_1_1.Lesson_2;
-using MyHomework_Lesson_1_1.Lesson_3;
-using MyHomework_Lesson_1_1.Lesson_4;
-using MyHomework_Lesson_1_1.Lesson_5;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using InterfaceHomeworkAssignmentLibrary;
 
 namespace MyHomework_Lesson_1_1
 {
     class Program
     {
-        static void WriteMainMenu(IHomeworkAssignments[] iHomeworkAssignments)
+        static void WriteMainMenu(List<IHomeworkAssignments> iHomeworkAssignments)
         {
             Console.WriteLine("Основное меню");
             Console.WriteLine("Для выхода введите 0");
-            for (int i = 0; i < iHomeworkAssignments.Length; i++)
-            {
-                Console.WriteLine($"Для вывода \"{iHomeworkAssignments[i].HomeworkName}\" введите {iHomeworkAssignments[i].HomeworkID}");
-            }
+            foreach (IHomeworkAssignments iHomeworkAssignment in iHomeworkAssignments)
+                Console.WriteLine($"Для вывода \"{iHomeworkAssignment.HomeworkName}\" введите {iHomeworkAssignment.HomeworkID}");
         }
-        static void MakeSelection(string a, IHomeworkAssignments[] iHomeworkAssignments)
+        static void MakeSelection(string a, List<IHomeworkAssignments> iHomeworkAssignments)
         {
-            for (int i = 0; i < iHomeworkAssignments.Length; i++)
-            {
-                if (iHomeworkAssignments[i].HomeworkID == a)
-                    iHomeworkAssignments[i].HomeworkTest();
-            }
+            foreach (IHomeworkAssignments iHomeworkAssignment in iHomeworkAssignments)
+                if (iHomeworkAssignment.HomeworkID == a)
+                    iHomeworkAssignment.HomeworkTest();
         }
-        static IHomeworkAssignments[] GetArrayHomeworkAssignments()
-        {
-            IHomeworkAssignments[] iHomeworkAssignments = new IHomeworkAssignments[7];
-            iHomeworkAssignments[0] = new HomeworkAssignment1();
-            iHomeworkAssignments[1] = new HomeworkAssignment2();
-            iHomeworkAssignments[2] = new HomeworkAssignment3();
-            iHomeworkAssignments[3] = new HomeworkAssignment4();
-            iHomeworkAssignments[4] = new HomeworkAssignment5();
-            iHomeworkAssignments[5] = new HomeworkAssignment6();
-            iHomeworkAssignments[6] = new HomeworkAssignment7();
-            return iHomeworkAssignments;
-        }
+
         static void Main(string[] args)
         {
-            IHomeworkAssignments[] iHomeworkAssignments = GetArrayHomeworkAssignments();
+            Assembly asm = Assembly.Load(File.ReadAllBytes("HomeworkAssignmentLibrary.dll"));
+            Type t = asm.GetType("HomeworkAssignmentLibrary.HomeworkAssignmentLibrary");
+            Object instance = Activator.CreateInstance(t);
+            MethodInfo method = t.GetMethod("GetListHomeworkAssignmentsFromLibrary", BindingFlags.Instance | BindingFlags.Public);
+            List<IHomeworkAssignments> iHomeworkAssignments = (List<IHomeworkAssignments>)method.Invoke(instance, null);
             string a;
             do
             {
