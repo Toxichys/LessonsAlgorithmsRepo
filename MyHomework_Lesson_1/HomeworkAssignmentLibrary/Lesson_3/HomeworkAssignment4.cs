@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using InterfaceHomeworkAssignmentLibrary;
 
-namespace MyHomework_Lesson_1_1.Lesson_3
+namespace HomeworkAssignmentLibrary.Lesson_3
 {
     public class HomeworkAssignment4 : IHomeworkAssignments
     {

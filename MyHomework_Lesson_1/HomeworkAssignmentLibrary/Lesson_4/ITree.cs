@@ -1,4 +1,4 @@
-﻿namespace MyHomework_Lesson_1_1.Lesson_4
+﻿namespace HomeworkAssignmentLibrary.Lesson_4
 {
     public interface ITree
     {

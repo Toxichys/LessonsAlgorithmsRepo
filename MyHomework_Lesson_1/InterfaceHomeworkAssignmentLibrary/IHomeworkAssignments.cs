@@ -1,6 +1,8 @@
-﻿namespace MyHomework_Lesson_1_1
+﻿using System;
+
+namespace InterfaceHomeworkAssignmentLibrary
 {
-    interface IHomeworkAssignments
+    public interface IHomeworkAssignments
     {
         string HomeworkID { get; }
         string HomeworkName { get; }

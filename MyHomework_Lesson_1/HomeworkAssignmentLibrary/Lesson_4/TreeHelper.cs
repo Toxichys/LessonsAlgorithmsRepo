@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyHomework_Lesson_1_1.Lesson_4
+namespace HomeworkAssignmentLibrary.Lesson_4
 {
     public static class TreeHelper
     {

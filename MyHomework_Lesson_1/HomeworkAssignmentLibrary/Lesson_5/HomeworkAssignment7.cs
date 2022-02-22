@@ -1,7 +1,8 @@
-﻿using MyHomework_Lesson_1_1.Lesson_4;
-using System;
+﻿using System;
+using HomeworkAssignmentLibrary.Lesson_4;
+using InterfaceHomeworkAssignmentLibrary;
 
-namespace MyHomework_Lesson_1_1.Lesson_5
+namespace HomeworkAssignmentLibrary.Lesson_5
 {
     class HomeworkAssignment7 : IHomeworkAssignments
     {
@@ -13,7 +14,7 @@ namespace MyHomework_Lesson_1_1.Lesson_5
         {
             Tree tree = new Tree();
             Console.WriteLine("Дерево:");
-            Tree.TestTree(tree);
+            Tree.FillTree(tree);
             tree.PrintTree();
             Console.WriteLine("Введите значение дерева для поиска:");
             int findValue;
